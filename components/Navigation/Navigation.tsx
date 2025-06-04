@@ -13,7 +13,9 @@ const Navigation = () => {
     <div className="">
       <Menubar className="w-full flex justify-center">
         <MenubarMenu>
-          <MenubarTrigger>Home</MenubarTrigger>
+          <MenubarTrigger asChild>
+            <Link href="/">Home</Link>
+          </MenubarTrigger>
         </MenubarMenu>
 
         <MenubarMenu>
