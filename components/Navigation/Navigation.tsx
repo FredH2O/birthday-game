@@ -1,82 +1,52 @@
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
   MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import Link from "next/link";
 
 const Navigation = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="">
       <Menubar className="w-full flex justify-center">
         <MenubarMenu>
           <MenubarTrigger>Home</MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem>
-              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+        </MenubarMenu>
+
+        <MenubarMenu>
+          <MenubarTrigger>About Me</MenubarTrigger>
+          <MenubarContent className="self-center">
+            <MenubarItem asChild>
+              <Link href="/about/loves">All the Things I Adore 😍</Link>
             </MenubarItem>
-            <MenubarItem>
-              New Window <MenubarShortcut>⌘N</MenubarShortcut>
+            <MenubarItem asChild>
+              <Link href="/about/hates">What Makes Me Go “No Thanks!” 😨</Link>
             </MenubarItem>
-            <MenubarItem disabled>New Incognito Window</MenubarItem>
             <MenubarSeparator />
-            <MenubarSub>
-              <MenubarSubTrigger>Share</MenubarSubTrigger>
-              <MenubarSubContent>
-                <MenubarItem>Email link</MenubarItem>
-                <MenubarItem>Messages</MenubarItem>
-                <MenubarItem>Notes</MenubarItem>
-              </MenubarSubContent>
-            </MenubarSub>
+            <MenubarItem asChild>
+              <Link href="/about/food">Yummy Food I Can’t Resist 😋</Link>
+            </MenubarItem>
+            <MenubarItem asChild>
+              <Link href="/about/sweets">Sweet Treats I Love the Most 🍭</Link>
+            </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem>
-              Print... <MenubarShortcut>⌘P</MenubarShortcut>
+            <MenubarItem asChild>
+              <Link href="/about/dreams">
+                When I Grow Up, I Want To Be... 🌟
+              </Link>
             </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
 
         <MenubarMenu>
-          <MenubarTrigger>About</MenubarTrigger>
+          <MenubarTrigger>Games</MenubarTrigger>
           <MenubarContent>
-            <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>
-              Always Show Full URLs
-            </MenubarCheckboxItem>
-            <MenubarSeparator />
-            <MenubarItem inset>
-              Reload <MenubarShortcut>⌘R</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem disabled inset>
-              Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-            </MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>Hide Sidebar</MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-
-        <MenubarMenu>
-          <MenubarTrigger>Greetings</MenubarTrigger>
-          <MenubarContent>
-            <MenubarRadioGroup value="benoit">
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-            </MenubarRadioGroup>
-            <MenubarSeparator />
-            <MenubarItem inset>Edit...</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>Add Profile...</MenubarItem>
+            <MenubarItem>How well do you know me?</MenubarItem>
+            <MenubarItem>Game 2</MenubarItem>
+            <MenubarItem>Game 3</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
