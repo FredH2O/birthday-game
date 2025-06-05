@@ -20,7 +20,7 @@ export const addMessage = async ({ content, sender }: MessageProps) => {
   return data;
 };
 
-export const getMessage = async () => {
+export const getMessages = async () => {
   const { data, error } = await supabase
     .from("birthday_messages")
     .select("*")
