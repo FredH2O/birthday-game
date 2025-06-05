@@ -9,7 +9,7 @@ const Adore = () => {
   return (
     <Accordion type="single" collapsible className="w-full max-w-xl">
       <AccordionItem value="item-1">
-        <AccordionTrigger className="text-lg font-bold text-pink-600">
+        <AccordionTrigger className="text-lg font-bold text-black">
           😻 Everything I Love! 😍
         </AccordionTrigger>
         <AccordionContent className="text-base text-gray-700 space-y-3 mt-2">
