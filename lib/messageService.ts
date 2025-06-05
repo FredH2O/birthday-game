@@ -9,7 +9,7 @@ export const addMessage = async ({ content, sender }: MessageProps) => {
   const { data, error } = await supabase.from("birthday_messages").insert([
     {
       content,
-      sender: sender || "Random Cool Person!",
+      sender: sender || "Random Cool Person",
     },
   ]);
 

@@ -2,6 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { addMessage, getMessages } from "@/lib/messageService";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 type Message = {
   id: string;
@@ -10,67 +26,99 @@ type Message = {
   created_at: string;
 };
 
-export default function MessageBoard() {
+const MessageBoard = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [content, setContent] = useState("");
-  const [sender, setSender] = useState("");
 
-  // Fetch messages on load
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: "Username must be at least 2 characters.",
+    }),
+    content: z.string().min(1, { message: "Message cannot be empty." }),
+  });
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await addMessage({
+        content: values.content,
+        sender: values.username,
+      });
+
+      form.reset({
+        username: "",
+        content: "",
+      });
+
+      const data = await getMessages();
+      setMessages(data);
+    } catch (error) {
+      console.error("Could not send message", error);
+    }
+  };
+
   useEffect(() => {
-    async function loadMessages() {
+    const loadMessages = async () => {
       try {
         const data = await getMessages();
         setMessages(data);
       } catch (error) {
-        console.error("Could not load messages:", error);
+        console.error("Could not load messages", error);
       }
-    }
+    };
     loadMessages();
   }, []);
 
-  // Submit a new message
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!content.trim()) return;
-
-    try {
-      await addMessage({ content, sender });
-      setContent("");
-      setSender("");
-
-      // Refresh message list
-      const data = await getMessages();
-      setMessages(data);
-    } catch (error) {
-      console.error("Could not send message:", error);
-    }
-  };
-
   return (
     <div className="max-w-xl mx-auto space-y-6 p-4 bg-pink-50 rounded-xl shadow-lg">
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <input
-          type="text"
-          placeholder="Your name (optional)"
-          value={sender}
-          onChange={(e) => setSender(e.target.value)}
-          className="w-full p-2 border rounded"
-        />
-        <textarea
-          placeholder="Write a birthday message!"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="w-full p-2 border rounded"
-          rows={3}
-          required
-        />
-        <button
-          type="submit"
-          className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition"
-        >
-          Send Message 🎉
-        </button>
-      </form>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="What's your name?"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  This is your public display name.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Write a birthday message!"
+                    className="w-full p-2 border rounded"
+                    rows={3}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">🎉 Send Birthday Message 🎉</Button>
+        </form>
+      </Form>
 
       <div className="space-y-4">
         {messages.map((msg) => (
@@ -88,4 +136,6 @@ export default function MessageBoard() {
       </div>
     </div>
   );
-}
+};
+
+export default MessageBoard;
