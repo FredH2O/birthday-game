@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const Navigation = () => {
   return (
-    <div className="">
+    <header className="">
       <Menubar className="w-full flex justify-center">
         <MenubarMenu>
           <MenubarTrigger asChild>
@@ -52,7 +52,7 @@ const Navigation = () => {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
-    </div>
+    </header>
   );
 };
 

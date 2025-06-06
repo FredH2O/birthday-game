@@ -118,6 +118,7 @@ const MessageBoard = () => {
                     placeholder="Write a birthday message for Amber!"
                     className="w-full p-2 border rounded"
                     rows={3}
+                    maxLength={100}
                     {...field}
                   />
                 </FormControl>
@@ -134,12 +135,21 @@ const MessageBoard = () => {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className="bg-white p-4 rounded-lg shadow-sm border border-pink-100"
+            className="bg-white max-w-sm md:max-w-lg p-4 rounded-lg shadow-sm border border-pink-100"
           >
-            <p className="text-gray-700">“{msg.content}”</p>
-            <p className="text-sm text-gray-500 mt-2">
-              — {msg.sender || "Anonymous"},{" "}
-              {new Date(msg.created_at).toLocaleString()}
+            <div className="bg-pink-50 p-3 text-center rounded">
+              <p className="text-gray-700 break-words whitespace-pre-line">
+                “{msg.content}”
+              </p>
+            </div>
+
+            <p className="text-xs font-bold text-gray-500 mt-2">
+              —{" "}
+              <span className="italic">
+                {msg.sender.charAt(0).toUpperCase() + msg.sender.slice(1) ||
+                  "Anonymous"}
+              </span>
+              , {new Date(msg.created_at).toLocaleString()}
             </p>
           </div>
         ))}
