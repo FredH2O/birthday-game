@@ -5,6 +5,13 @@ import { addMessage, getMessages } from "@/lib/messageService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { CheckCircle2Icon } from "lucide-react";
+
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/neobrutalism-ui/alert";
 
 import { Button } from "@/components/neobrutalism-ui/button";
 import { Textarea } from "@/components/neobrutalism-ui/textarea";
@@ -30,6 +37,7 @@ type Message = {
 const MessageBoard = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [sent, setSent] = useState<boolean>(false);
 
   const formSchema = z.object({
     name: z.string().min(2, {
@@ -53,6 +61,8 @@ const MessageBoard = () => {
         content: values.content,
         sender: values.name,
       });
+
+      setSent(true);
 
       form.reset({
         name: "",
@@ -82,6 +92,16 @@ const MessageBoard = () => {
     };
     loadMessages();
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSent(false);
+    }, 3000);
+
+    return function clear() {
+      clearTimeout(timer);
+    };
+  }, [sent]);
 
   return (
     <div className="max-w-xl mx-auto space-y-6 p-4 bg-pink-50 rounded-xl shadow-lg">
@@ -118,7 +138,7 @@ const MessageBoard = () => {
                     placeholder="Write a birthday message for Amber!"
                     className="w-full p-2 border rounded"
                     rows={3}
-                    maxLength={100}
+                    maxLength={150}
                     {...field}
                   />
                 </FormControl>
@@ -131,6 +151,15 @@ const MessageBoard = () => {
       </Form>
 
       <div className="space-y-4">
+        {sent && (
+          <Alert>
+            <CheckCircle2Icon />
+            <AlertTitle>🎈 Message Sent Successfully!</AlertTitle>
+            <AlertDescription>
+              Thank you for adding your sparkle to Amber’s birthday wall! 🌟
+            </AlertDescription>
+          </Alert>
+        )}
         {loading && <Loading />}
         {messages.map((msg) => (
           <div
