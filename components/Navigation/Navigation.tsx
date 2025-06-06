@@ -5,7 +5,7 @@ import {
   MenubarMenu,
   MenubarSeparator,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/neobrutalism-ui/menubar";
 import Link from "next/link";
 
 const Navigation = () => {

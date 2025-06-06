@@ -6,8 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/neobrutalism-ui/button";
+import { Textarea } from "@/components/neobrutalism-ui/textarea";
 import {
   Form,
   FormControl,
@@ -16,8 +16,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/components/neobrutalism-ui/form";
+import { Input } from "@/components/neobrutalism-ui/input";
+import Loading from "../Loading/Loading";
 
 type Message = {
   id: string;
@@ -28,9 +29,10 @@ type Message = {
 
 const MessageBoard = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const formSchema = z.object({
-    username: z.string().min(2, {
+    name: z.string().min(2, {
       message: "Username must be at least 2 characters.",
     }),
     content: z.string().min(1, { message: "Message cannot be empty." }),
@@ -39,19 +41,21 @@ const MessageBoard = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      name: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setLoading(true);
+
     try {
       await addMessage({
         content: values.content,
-        sender: values.username,
+        sender: values.name,
       });
 
       form.reset({
-        username: "",
+        name: "",
         content: "",
       });
 
@@ -59,14 +63,19 @@ const MessageBoard = () => {
       setMessages(data);
     } catch (error) {
       console.error("Could not send message", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     const loadMessages = async () => {
+      setLoading(true);
+
       try {
         const data = await getMessages();
         setMessages(data);
+        setLoading(false);
       } catch (error) {
         console.error("Could not load messages", error);
       }
@@ -80,7 +89,7 @@ const MessageBoard = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="username"
+            name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Name</FormLabel>
@@ -106,7 +115,7 @@ const MessageBoard = () => {
                 <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Write a birthday message!"
+                    placeholder="Write a birthday message for Amber!"
                     className="w-full p-2 border rounded"
                     rows={3}
                     {...field}
@@ -121,6 +130,7 @@ const MessageBoard = () => {
       </Form>
 
       <div className="space-y-4">
+        {loading && <Loading />}
         {messages.map((msg) => (
           <div
             key={msg.id}

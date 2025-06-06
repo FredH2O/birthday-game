@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/neobrutalism-ui/accordion";
 
 import { AnimatePresence, motion } from "framer-motion";
 import loves from "@/data/loves.json";
