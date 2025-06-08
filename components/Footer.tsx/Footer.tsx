@@ -10,7 +10,7 @@ const Footer = () => {
               href="https://github.com/FredH2O"
               target="_blank"
             >
-              Fred(Dad)
+              Fred
             </a>{" "}
             {new Date().getFullYear()}
           </h2>
