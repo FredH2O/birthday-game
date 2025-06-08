@@ -17,11 +17,12 @@ export default function ImageCard({
   return (
     <figure
       className={cn(
-        "w-[250px] overflow-hidden rounded-base border-2 border-border bg-main font-base shadow-shadow",
+        "w-[300px] overflow-hidden rounded-base border-2 border-border bg-main font-base shadow-shadow",
         className
       )}
     >
       <Image
+        priority
         width={500}
         height={500}
         className="w-full aspect-4/3"

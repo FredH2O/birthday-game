@@ -1,4 +1,6 @@
+"use client";
 import ImageCard from "@/components/neobrutalism-ui/image-card";
+import { motion } from "framer-motion";
 
 const FavouriteFood = [
   {
@@ -29,7 +31,12 @@ const FavouriteFood = [
 
 const Food = () => {
   return (
-    <div className="space-y-3 p-3 container grid md:grid-cols-2 grid-cols-1 place-items-center">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="gap-3 p-3 grid md:grid-cols-2 grid-cols-1 place-items-center"
+    >
       {FavouriteFood.map((food) => (
         <ImageCard
           key={food.id}
@@ -38,7 +45,7 @@ const Food = () => {
           description={food.description}
         ></ImageCard>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
