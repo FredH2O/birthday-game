@@ -94,11 +94,13 @@ const MessageBoard = () => {
   }, []);
 
   useEffect(() => {
+    if (!sent) return;
+
     const timer = setTimeout(() => {
       setSent(false);
     }, 3000);
 
-    return function clear() {
+    return () => {
       clearTimeout(timer);
     };
   }, [sent]);
