@@ -8,7 +8,7 @@ const handleAnimationComplete = () => {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 to-yellow-100 p-5 min-w-xl max-w-xl">
+    <main className="min-h-screen bg-gradient-to-br from-pink-100 to-yellow-100 p-5 md:min-w-xl min-w-md max-w-xl">
       <div className="flex justify-center py-5">
         <SplitText
           text="🎂 Birthday Messages Wall🎈"
