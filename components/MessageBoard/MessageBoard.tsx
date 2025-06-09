@@ -12,6 +12,11 @@ import {
   AlertDescription,
   AlertTitle,
 } from "@/components/neobrutalism-ui/alert";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/neobrutalism-ui/avatar";
 
 import { Button } from "@/components/neobrutalism-ui/button";
 import { Textarea } from "@/components/neobrutalism-ui/textarea";
@@ -32,6 +37,18 @@ type Message = {
   content: string;
   sender: string;
   created_at: string;
+};
+
+const Avatars = [
+  "/Avatars/avatar-1.png",
+  "/Avatars/avatar-2.png",
+  "/Avatars/avatar-3.png",
+  "/Avatars/avatar-4.png",
+];
+
+const getRandomAvatar = () => {
+  const pickedAvatar = Math.floor(Math.random() * Avatars.length);
+  return Avatars[pickedAvatar];
 };
 
 const MessageBoard = () => {
@@ -173,15 +190,24 @@ const MessageBoard = () => {
                 “{msg.content}”
               </p>
             </div>
-
-            <p className="text-xs font-bold text-gray-500 mt-2">
-              —{" "}
-              <span className="italic">
-                {msg.sender.charAt(0).toUpperCase() + msg.sender.slice(1) ||
-                  "Anonymous"}
-              </span>
-              , {new Date(msg.created_at).toLocaleString()}
-            </p>
+            <div className="flex items-center gap-3 pt-3">
+              <div>
+                <Avatar>
+                  <AvatarImage src={getRandomAvatar()} alt="@shadcn" />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-500 mt-2">
+                  —{" "}
+                  <span className="italic">
+                    {msg.sender.charAt(0).toUpperCase() + msg.sender.slice(1) ||
+                      "Anonymous"}
+                  </span>
+                  , {new Date(msg.created_at).toLocaleString()}
+                </p>
+              </div>
+            </div>
           </div>
         ))}
       </div>

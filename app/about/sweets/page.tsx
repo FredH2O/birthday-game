@@ -37,7 +37,7 @@ const FavouriteSweets = [
 const Sweets = () => {
   return (
     <div>
-      <div className="flex justify-center py-5">
+      <div className="flex flex-col gap-2 items-center justify-center text-center p-5">
         <SplitText
           text="😋 Sweet Tooth Cravings 😻"
           className="text-2xl font-semibold text-center"
@@ -52,6 +52,12 @@ const Sweets = () => {
           textAlign="center"
           onLetterAnimationComplete={handleAnimationComplete}
         />
+        <p className="text-md max-w-md font-light italic">
+          Step into Amber’s candy-colored world—where chocolate melts like joy,
+          cookies hide golden secrets, and gummy bears giggle with every bite.
+          Every sweet is a sprinkle of happiness, a tiny celebration in every
+          chew!
+        </p>
       </div>
       <motion.div
         initial={{ opacity: 0, y: -10 }}
@@ -61,6 +67,7 @@ const Sweets = () => {
       >
         {FavouriteSweets.map((sweet) => (
           <ImageCard
+            className="hover:-translate-y-1 transition-all duration-300"
             key={sweet.id}
             caption={sweet.caption}
             imageUrl={sweet.url}

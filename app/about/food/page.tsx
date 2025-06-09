@@ -37,7 +37,7 @@ const handleAnimationComplete = () => {
 const Food = () => {
   return (
     <div>
-      <div className="flex justify-center py-5">
+      <div className="flex flex-col gap-2 items-center justify-center text-center p-5">
         <SplitText
           text="😋 Fave Food 😻"
           className="text-2xl font-semibold text-center"
@@ -52,6 +52,11 @@ const Food = () => {
           textAlign="center"
           onLetterAnimationComplete={handleAnimationComplete}
         />
+        <p className="text-md max-w-md font-light italic">
+          A peek into Amber’s magical menu—where strawberries sparkle like fairy
+          snacks, spaghetti twirls with joy, and every nugget is a golden
+          treasure. These aren’t just meals, they’re tiny adventures on a plate!
+        </p>
       </div>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -61,6 +66,7 @@ const Food = () => {
       >
         {FavouriteFood.map((food) => (
           <ImageCard
+            className="hover:-translate-y-1 transition-all duration-300"
             key={food.id}
             caption={food.caption}
             imageUrl={food.url}
