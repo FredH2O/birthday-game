@@ -44,6 +44,10 @@ const Avatars = [
   "/Avatars/avatar-2.png",
   "/Avatars/avatar-3.png",
   "/Avatars/avatar-4.png",
+  "/Avatars/avatar-5.png",
+  "/Avatars/avatar-6.png",
+  "/Avatars/avatar-7.png",
+  "/Avatars/avatar-8.png",
 ];
 
 const getRandomAvatar = () => {
