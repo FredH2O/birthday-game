@@ -5,25 +5,25 @@ import { motion } from "framer-motion";
 const FavouriteSweets = [
   {
     id: 1,
-    url: "/images/chocolate.jpg",
+    url: "/Images/chocolate.jpg",
     caption: "Chocolate",
     description: "Rich, smooth, and melts like a hug from Amber’s smile!",
   },
   {
     id: 2,
-    url: "/images/cookies.jpg",
+    url: "/Images/cookies.jpg",
     caption: "Cookies",
     description: "Crunchy, warm, and filled with sweet little surprises!",
   },
   {
     id: 3,
-    url: "/images/gummy-bear.jpg",
+    url: "/Images/gummy-bear.jpg",
     caption: "Gummy Bears",
     description: "Chewy, colorful friends that dance on your tongue!",
   },
   {
     id: 4,
-    url: "/images/ice-cream.jpg",
+    url: "/Images/ice-cream.jpg",
     caption: "Ice Cream",
     description: "Cool, creamy, and the perfect treat for sunny days!",
   },

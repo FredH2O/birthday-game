@@ -5,25 +5,25 @@ import { motion } from "framer-motion";
 const FavouriteFood = [
   {
     id: 1,
-    url: "/images/strawberry.jpg",
+    url: "/Images/strawberry.jpg",
     caption: "Strawberries",
     description: "Sweet, squishy, and pink like a princess snack!",
   },
   {
     id: 2,
-    url: "/images/spaghetti.jpg",
+    url: "/Images/spaghetti.jpg",
     caption: "Spaghetti",
     description: "Twirly noodles that dance on the fork!",
   },
   {
     id: 3,
-    url: "/images/chicken-nuggets.jpg",
+    url: "/Images/chicken-nuggets.jpg",
     caption: "Chicken Nuggets",
     description: "Crunchy little bites Amber’s nuggety joy!",
   },
   {
     id: 4,
-    url: "/images/chicken-wings.jpg",
+    url: "/Images/chicken-wings.jpg",
     caption: "Chicken Wings",
     description: "Sticky, yummy, and oh-so-fun to eat!",
   },
