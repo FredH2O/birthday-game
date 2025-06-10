@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { QuizProvider } from "@/context/QuizContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,7 +54,7 @@ export default function RootLayout({
       >
         <Navigation />
         <main className="flex-1 w-full flex justify-center items-center">
-          {children}
+          <QuizProvider>{children}</QuizProvider>
         </main>
         <Footer />
 
