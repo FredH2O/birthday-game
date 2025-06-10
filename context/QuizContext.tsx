@@ -2,12 +2,13 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 type QuizAnswers = {
-  [questionId: string]: string;
+  [questionId: number]: string;
 };
 
 type QuizContextType = {
   answers: QuizAnswers;
-  setAnswer: (questionId: string, answer: string) => void;
+  setAnswer: (questionId: number, answer: string) => void;
+  resetAnswers: () => void;
 };
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -15,12 +16,16 @@ const QuizContext = createContext<QuizContextType | undefined>(undefined);
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [answers, setAnswers] = useState<QuizAnswers>({});
 
-  const setAnswer = (questionId: string, answer: string) => {
+  const setAnswer = (questionId: number, answer: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
+  const resetAnswers = () => {
+    setAnswers({});
+  };
+
   return (
-    <QuizContext.Provider value={{ answers, setAnswer }}>
+    <QuizContext.Provider value={{ answers, setAnswer, resetAnswers }}>
       {children}
     </QuizContext.Provider>
   );

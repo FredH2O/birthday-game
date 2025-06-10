@@ -8,7 +8,7 @@ type Answer = {
 
 type KnowMeGameProps = {
   totalAnswer: Answer[];
-  questionId: string;
+  questionId: number;
 };
 
 const RadioButtons = ({ totalAnswer, questionId }: KnowMeGameProps) => {
