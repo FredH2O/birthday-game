@@ -1,0 +1,32 @@
+[
+  {
+    "question": "What is my favorite color?",
+    "options": [
+      { "label": "Pink", "value": "pink" },
+      { "label": "Blue", "value": "blue" },
+      { "label": "Green", "value": "green" },
+      { "label": "Rainbow", "value": "rainbow" }
+    ],
+    "answer": "pink"
+  },
+  {
+    "question": "What is my favorite food?",
+    "options": [
+      { "label": "Sweet BBQ Chicken Wings", "value": "wings" },
+      { "label": "Mac and Cheese", "value": "mac" },
+      { "label": "Pizza", "value": "pizza" },
+      { "label": "Strawberry Ice Cream", "value": "icecream" }
+    ],
+    "answer": "wings"
+  },
+  {
+    "question": "What is my favorite animal?",
+    "options": [
+      { "label": "Cat", "value": "cat" },
+      { "label": "Bunny", "value": "bunny" },
+      { "label": "Giraffe", "value": "giraffe" },
+      { "label": "Dog", "value": "dog" }
+    ],
+    "answer": "cat"
+  }
+]
