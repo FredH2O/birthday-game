@@ -46,7 +46,9 @@ const Navigation = () => {
         <MenubarMenu>
           <MenubarTrigger>Games</MenubarTrigger>
           <MenubarContent>
-            <MenubarItem>How well do you know me?</MenubarItem>
+            <MenubarItem asChild>
+              <Link href="/games/knowme">How well do you know me?</Link>
+            </MenubarItem>
             <MenubarItem>Game 2</MenubarItem>
             <MenubarItem>Game 3</MenubarItem>
           </MenubarContent>
