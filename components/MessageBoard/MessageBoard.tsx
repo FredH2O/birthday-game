@@ -127,7 +127,7 @@ const MessageBoard = () => {
   }, [sent]);
 
   return (
-    <div className="max-w-xl mx-auto space-y-6 p-4 bg-pink-50 rounded-xl shadow-lg">
+    <div className="max-w-xl md:min-w-md min-w-sm mx-auto space-y-6 p-4 bg-pink-50 rounded-xl shadow-lg">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
