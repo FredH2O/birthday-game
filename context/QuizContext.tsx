@@ -5,18 +5,27 @@ type QuizAnswers = {
   [questionId: number]: string;
 };
 
+type AnswerProp = {
+  questionId: number;
+  answer: string;
+};
+
 type QuizContextType = {
   answers: QuizAnswers;
-  setAnswer: (questionId: number, answer: string) => void;
+  setAnswer: (arg: AnswerProp) => void;
   resetAnswers: () => void;
+};
+
+type QuizProp = {
+  children: ReactNode;
 };
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
 
-export const QuizProvider = ({ children }: { children: ReactNode }) => {
+export const QuizProvider = ({ children }: QuizProp) => {
   const [answers, setAnswers] = useState<QuizAnswers>({});
 
-  const setAnswer = (questionId: number, answer: string) => {
+  const setAnswer = ({ questionId, answer }: AnswerProp) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 

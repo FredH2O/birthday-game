@@ -1,6 +1,7 @@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useQuiz } from "@/context/QuizContext";
+
 type Answer = {
   label: string;
   value: string;
@@ -17,7 +18,7 @@ const RadioButtons = ({ totalAnswer, questionId }: KnowMeGameProps) => {
   return (
     <div>
       <RadioGroup
-        onValueChange={(val) => setAnswer(questionId, val)}
+        onValueChange={(val) => setAnswer({ questionId, answer: val })}
         value={answers[questionId] || ""}
       >
         {totalAnswer.map((answer) => {
