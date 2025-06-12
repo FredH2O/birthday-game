@@ -8,7 +8,6 @@ export default function PetTheCat() {
   const isTouchDevice = useRef(false);
 
   useEffect(() => {
-    // Check once on mount if it's a touch device
     isTouchDevice.current = window.matchMedia("(pointer: coarse)").matches;
   }, []);
 
