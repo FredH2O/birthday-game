@@ -11,9 +11,12 @@ const shuffle = <T,>(array: T[]): T[] => {
   return [...array].sort(() => Math.random() - 0.5);
 };
 
+const RESET_DELAY_MS = 5000;
+
 const KnowMeGame = () => {
   const { answers, resetAnswers } = useQuiz();
   const [submit, setSubmit] = useState<boolean>(false);
+  const [score, setScore] = useState<number>(0);
 
   const [shuffledQuestionsOptions] = useState(() =>
     (questions as Question[]).map((q) => shuffle(q.options))
@@ -25,7 +28,8 @@ const KnowMeGame = () => {
     const timer = setTimeout(() => {
       setSubmit(false);
       resetAnswers();
-    }, 5000);
+      setScore(0);
+    }, RESET_DELAY_MS);
 
     return () => clearTimeout(timer);
   }, [submit, resetAnswers]);
@@ -33,6 +37,15 @@ const KnowMeGame = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    let totalScore = 0;
+
+    (questions as Question[]).forEach((q, index) => {
+      if (answers[index] === q.answer) {
+        totalScore++;
+      }
+    });
+
+    setScore(totalScore);
     setSubmit(true);
     console.log("User's Answer", answers);
   };
@@ -66,9 +79,14 @@ const KnowMeGame = () => {
               </div>
             );
           })}
-          <Button className="self-center" type="submit">
-            Submit
-          </Button>
+          <div className="flex flex-col gap-3 justify-start items-start w-full">
+            <p className="italic font-light text-lg bg-sky-200 py-1 px-3 rounded">
+              Score: {score}
+            </p>
+            <Button className="self-start" type="submit">
+              Submit
+            </Button>
+          </div>
         </form>
       </section>
     </div>

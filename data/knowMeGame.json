@@ -28,5 +28,65 @@
       { "label": "Dog", "value": "dog" }
     ],
     "answer": "cat"
+  },
+  {
+    "question": "What is my favorite game?",
+    "options": [
+      { "label": "Roblox", "value": "roblox" },
+      { "label": "Minecraft", "value": "minecraft" },
+      { "label": "Mario Kart", "value": "mario" },
+      { "label": "Animal Crossing", "value": "ac" }
+    ],
+    "answer": "roblox"
+  },
+  {
+    "question": "What do I love to drink?",
+    "options": [
+      { "label": "Milk", "value": "milk" },
+      { "label": "Bubble Tea", "value": "bubbletea" },
+      { "label": "Juice", "value": "juice" },
+      { "label": "Soda", "value": "soda" }
+    ],
+    "answer": "bubbletea"
+  },
+  {
+    "question": "Which snack do I love?",
+    "options": [
+      { "label": "Fries", "value": "fries" },
+      { "label": "Chicken Popcorn", "value": "popcornchicken" },
+      { "label": "Nachos", "value": "nachos" },
+      { "label": "Cheese Balls", "value": "cheeseballs" }
+    ],
+    "answer": "popcornchicken"
+  },
+  {
+    "question": "What do I love to do on weekends?",
+    "options": [
+      { "label": "Go hiking", "value": "hiking" },
+      { "label": "Read books", "value": "reading" },
+      { "label": "Watch a movie", "value": "movie" },
+      { "label": "Paint and draw", "value": "art" }
+    ],
+    "answer": "movie"
+  },
+  {
+    "question": "What do I like to use the iPad for?",
+    "options": [
+      { "label": "Watching cartoons", "value": "cartoons" },
+      { "label": "Playing Roblox", "value": "roblox" },
+      { "label": "Drawing", "value": "drawing" },
+      { "label": "Listening to music", "value": "music" }
+    ],
+    "answer": "roblox"
+  },
+  {
+    "question": "Who is my favorite Sanrio character?",
+    "options": [
+      { "label": "Hello Kitty", "value": "hellokitty" },
+      { "label": "Cinnamoroll", "value": "cinnamoroll" },
+      { "label": "My Melody", "value": "mymelody" },
+      { "label": "Kuromi", "value": "kuromi" }
+    ],
+    "answer": "mymelody"
   }
 ]
