@@ -17,6 +17,7 @@ const KnowMeGame = () => {
   const { answers, resetAnswers } = useQuiz();
   const [submit, setSubmit] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+  const [message, setMessage] = useState<string>("");
 
   const [shuffledQuestionsOptions] = useState(() =>
     (questions as Question[]).map((q) => shuffle(q.options))
@@ -25,6 +26,23 @@ const KnowMeGame = () => {
   useEffect(() => {
     if (!submit) return;
 
+    switch (score) {
+      case 0:
+        setMessage("Try again! You can do it!");
+        break;
+      case 1:
+        setMessage("You're good!");
+        break;
+      case 2:
+        setMessage("Great job!");
+        break;
+      case 3:
+        setMessage("Amazing! You really know me!");
+        break;
+      default:
+        setMessage("");
+    }
+
     const timer = setTimeout(() => {
       setSubmit(false);
       resetAnswers();
@@ -32,11 +50,10 @@ const KnowMeGame = () => {
     }, RESET_DELAY_MS);
 
     return () => clearTimeout(timer);
-  }, [submit, resetAnswers]);
+  }, [submit, resetAnswers, score]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     let totalScore = 0;
 
     (questions as Question[]).forEach((q, index) => {
@@ -83,6 +100,7 @@ const KnowMeGame = () => {
             <p className="italic font-light text-lg bg-sky-200 py-1 px-3 rounded">
               Score: {score}
             </p>
+            <p className="text-2xl">{message}</p>
             <Button className="self-start" type="submit">
               Submit
             </Button>
