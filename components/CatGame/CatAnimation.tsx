@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function PetTheCat() {
@@ -27,7 +28,12 @@ export default function PetTheCat() {
     : { onClick: handlePet };
 
   return (
-    <div className="flex flex-col items-center justify-center border rounded bg-yellow-50 p-10">
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col items-center justify-center rounded bg-yellow-50 p-10"
+    >
       <h1 className="text-3xl font-bold mb-6 text-gray-700">Pet the Cat! 🐾</h1>
 
       <Image
@@ -44,6 +50,6 @@ export default function PetTheCat() {
       <p className="mt-6 text-xl text-gray-800">
         Pets: <span className="font-semibold">{pets}</span>
       </p>
-    </div>
+    </motion.div>
   );
 }
