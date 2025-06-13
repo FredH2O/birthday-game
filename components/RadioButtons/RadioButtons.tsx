@@ -25,9 +25,14 @@ const RadioButtons = ({ totalAnswer, questionId }: KnowMeGameProps) => {
           const id = `r-${answer.value}`;
 
           return (
-            <div key={answer.value} className="flex items-center space-x-2">
-              <RadioGroupItem value={answer.value} id={id} />
-              <Label htmlFor={id}>{answer.label}</Label>
+            <div
+              key={answer.value}
+              className="flex items-center active:text-purple-500 hover:text-pink-800  space-x-2 "
+            >
+              <Label className="cursor-pointer space-x-2 flex" htmlFor={id}>
+                <RadioGroupItem value={answer.value} id={id} />
+                {answer.label}
+              </Label>
             </div>
           );
         })}

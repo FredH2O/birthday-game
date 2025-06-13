@@ -116,7 +116,7 @@ const KnowMeGame = () => {
             );
           })}
           <div className="flex flex-col gap-3 justify-start items-start w-full">
-            <p className="italic font-light text-lg bg-sky-200 py-1 px-3 rounded">
+            <p className="font-bold text-sm bg-sky-200 py-1 px-3 rounded">
               Score: {score}
             </p>
             <p className="text-2xl">{message}</p>
