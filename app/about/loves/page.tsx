@@ -15,8 +15,12 @@ const Loves = () => {
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="container flex justify-center"
+      className="container flex flex-col items-center justify-center max-w-md"
     >
+      <p className="text-center mt-10 font-semibold italic text-md max-w-sm">
+        These are some of my favorite things, but oh - I’ve got so many more I
+        love that aren’t even listed here!
+      </p>
       <Accordion type="single" collapsible className="w-full max-w-xl p-3">
         <AccordionItem value="item-1">
           <AccordionTrigger
