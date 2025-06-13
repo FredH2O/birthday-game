@@ -31,13 +31,31 @@ const KnowMeGame = () => {
         setMessage("Try again! You can do it!");
         break;
       case 1:
-        setMessage("You're good!");
+        setMessage("You're just warming up!");
         break;
       case 2:
-        setMessage("Great job!");
+        setMessage("Not bad! You're getting there!");
         break;
       case 3:
-        setMessage("Amazing! You really know me!");
+        setMessage("You're good!");
+        break;
+      case 4:
+        setMessage("Great job! Keep going!");
+        break;
+      case 5:
+        setMessage("Wow! You're halfway to genius!");
+        break;
+      case 6:
+        setMessage("Amazing! You're getting to know me!");
+        break;
+      case 7:
+        setMessage("Incredible! You're really close!");
+        break;
+      case 8:
+        setMessage("So smart! You're almost perfect!");
+        break;
+      case 9:
+        setMessage("Perfect score! You know me better than anyone!");
         break;
       default:
         setMessage("");
@@ -47,6 +65,7 @@ const KnowMeGame = () => {
       setSubmit(false);
       resetAnswers();
       setScore(0);
+      setMessage("");
     }, RESET_DELAY_MS);
 
     return () => clearTimeout(timer);
@@ -68,12 +87,12 @@ const KnowMeGame = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex justify-center items-center flex-col">
       <h1 className="text-xl text-center p-3">How well do you know me ? 🤔 </h1>
-      <section className="p-5 max-w-sm rounded bg-pink-200 mb-4 shadow-2xl border-r-5 border-b-5">
+      <section className="p-5 lg:max-w-lg max-w-sm rounded bg-pink-200 mb-4 shadow-2xl border-r-5 border-b-5">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center gap-5 min-w-sm py-1 items-center"
+          className="lg:grid lg:grid-cols-2 lg:gap-5 flex flex-col justify-center gap-5 min-w-sm py-1 items-center"
         >
           {(questions as Question[]).map((q, index) => {
             const mixedOptions = shuffledQuestionsOptions[index];
