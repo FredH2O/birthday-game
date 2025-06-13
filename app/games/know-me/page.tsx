@@ -11,13 +11,15 @@ const shuffle = <T,>(array: T[]): T[] => {
   return [...array].sort(() => Math.random() - 0.5);
 };
 
-const RESET_DELAY_MS = 5000;
+// const RESET_DELAY_MS = 5000;
 
 const KnowMeGame = () => {
   const { answers, resetAnswers } = useQuiz();
   const [submit, setSubmit] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [message, setMessage] = useState<string>("");
+  const [playAgain, setPlayAgain] = useState<boolean>(false);
+  const [formKey, setFormKey] = useState(0);
 
   const [shuffledQuestionsOptions] = useState(() =>
     (questions as Question[]).map((q) => shuffle(q.options))
@@ -61,14 +63,8 @@ const KnowMeGame = () => {
         setMessage("");
     }
 
-    const timer = setTimeout(() => {
-      setSubmit(false);
-      resetAnswers();
-      setScore(0);
-      setMessage("");
-    }, RESET_DELAY_MS);
-
-    return () => clearTimeout(timer);
+    // const timer = setTimeout(() => {}, RESET_DELAY_MS);
+    // return () => clearTimeout(timer);
   }, [submit, resetAnswers, score]);
 
   const handleSubmit = (e: FormEvent) => {
@@ -83,7 +79,18 @@ const KnowMeGame = () => {
 
     setScore(totalScore);
     setSubmit(true);
+    setPlayAgain(true);
+
     console.log("User's Answer", answers);
+  };
+
+  const handlePlayAgain = () => {
+    setPlayAgain(false);
+    setSubmit(false);
+    resetAnswers();
+    setScore(0);
+    setMessage("");
+    setFormKey((prev) => prev + 1);
   };
 
   return (
@@ -91,6 +98,7 @@ const KnowMeGame = () => {
       <h1 className="text-xl text-center p-3">How well do you know me ? 🤔 </h1>
       <section className="p-5 lg:max-w-lg max-w-sm rounded bg-pink-200 mb-4 shadow-2xl border-r-5 border-b-5">
         <form
+          key={formKey}
           onSubmit={handleSubmit}
           className="lg:grid lg:grid-cols-2 lg:gap-5 flex flex-col justify-center gap-5 min-w-sm py-1 items-center"
         >
@@ -120,9 +128,19 @@ const KnowMeGame = () => {
               Score: {score}
             </p>
             <p className="text-2xl">{message}</p>
-            <Button className="self-start" type="submit">
-              Submit
-            </Button>
+            {playAgain ? (
+              <Button
+                onClick={() => handlePlayAgain()}
+                className="self-start"
+                type="button"
+              >
+                Play Again ?
+              </Button>
+            ) : (
+              <Button className="self-start" type="submit">
+                Submit
+              </Button>
+            )}
           </div>
         </form>
       </section>

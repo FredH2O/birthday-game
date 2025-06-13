@@ -30,7 +30,7 @@
     "answer": "cat"
   },
   {
-    "question": "What is my favorite game?",
+    "question": "What is my favorite computer game?",
     "options": [
       { "label": "Roblox", "value": "roblox" },
       { "label": "Minecraft", "value": "minecraft" },
@@ -73,7 +73,7 @@
     "question": "What do I like to use the iPad for?",
     "options": [
       { "label": "Watching cartoons", "value": "cartoons" },
-      { "label": "Playing Roblox", "value": "roblox" },
+      { "label": "Reading", "value": "reading" },
       { "label": "Drawing", "value": "drawing" },
       { "label": "Watching YouTube funny stuff", "value": "youtube" }
     ],
