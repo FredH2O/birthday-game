@@ -9,7 +9,7 @@ import {
 import ImageCard from "@/components/neobrutalism-ui/image-card";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Loves = () => {
+const Dream = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -30 }}
@@ -64,7 +64,7 @@ const Loves = () => {
                   transition={{ duration: 1 }}
                 >
                   Sometimes I just want to hold a kitten in a warm basket and
-                  read them a story. Maybe I’ll have a cozy cat café one day — a
+                  read them a story. Maybe I’ll have a cozy cat café one day - a
                   quiet place where people and pets feel happy together.
                 </motion.p>
               </div>
@@ -76,4 +76,4 @@ const Loves = () => {
   );
 };
 
-export default Loves;
+export default Dream;
