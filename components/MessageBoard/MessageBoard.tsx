@@ -31,6 +31,7 @@ import {
 } from "@/components/neobrutalism-ui/form";
 import { Input } from "@/components/neobrutalism-ui/input";
 import Loading from "../Loading/Loading";
+import ConfettiButton from "../Confetti/ConfettiButton";
 
 type Message = {
   id: string;
@@ -169,8 +170,9 @@ const MessageBoard = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">🎉 Send Birthday Message 🎉</Button>
+          <Button type="submit"> Send Birthday Message 💌</Button>
         </form>
+        <ConfettiButton />
       </Form>
 
       <div className="space-y-4">
