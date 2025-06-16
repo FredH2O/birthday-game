@@ -47,12 +47,16 @@ const Navigation = () => {
           <MenubarTrigger>Games</MenubarTrigger>
           <MenubarContent>
             <MenubarItem asChild>
-              <Link href="/games/know-me">How well do you know me?</Link>
+              <Link href="/games/know-me">Are We Besties?</Link>
             </MenubarItem>
             <MenubarItem asChild>
               <Link href="/games/cat-game">Cat Game</Link>
             </MenubarItem>
-            <MenubarItem>Game 3</MenubarItem>
+            <MenubarItem asChild>
+              <Link href="/games/rock-paper-scissors">
+                Rock, Paper, Scissors!
+              </Link>
+            </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
