@@ -5,7 +5,7 @@ type Props = {
   imageUrl: string;
   caption: string;
   className?: string;
-  description: string;
+  description?: string;
 };
 
 export default function ImageCard({
