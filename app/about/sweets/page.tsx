@@ -67,7 +67,7 @@ const Sweets = () => {
       >
         {FavouriteSweets.map((sweet) => (
           <ImageCard
-            className="hover:-translate-y-1 transition-all duration-300"
+            className="hover:-translate-y-1 h-86 transition-all duration-300"
             key={sweet.id}
             caption={sweet.caption}
             imageUrl={sweet.url}

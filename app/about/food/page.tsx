@@ -8,25 +8,25 @@ const FavouriteFood = [
     id: 1,
     url: "/Images/strawberry.jpg",
     caption: "Strawberries",
-    description: "Sweet, squishy, and pink like a princess snack!",
+    description: "Juicy and red - like little hearts you can eat!",
   },
   {
     id: 2,
     url: "/Images/spaghetti.jpg",
     caption: "Spaghetti",
-    description: "Twirly noodles that dance on the fork!",
+    description: "Slurpy noodles with yummy sauce - so fun to twirl!",
   },
   {
     id: 3,
     url: "/Images/chicken-nuggets.jpg",
     caption: "Chicken Nuggets",
-    description: "Crunchy little bites Amber’s nuggety joy!",
+    description: "Crispy outside, soft inside - nuggety happiness!",
   },
   {
     id: 4,
     url: "/Images/chicken-wings.jpg",
     caption: "Chicken Wings",
-    description: "Sticky, yummy, and oh-so-fun to eat!",
+    description: "Sticky, tasty, and extra good with fingers!",
   },
 ];
 
@@ -66,7 +66,7 @@ const Food = () => {
       >
         {FavouriteFood.map((food) => (
           <ImageCard
-            className="hover:-translate-y-1 transition-all duration-300"
+            className="hover:-translate-y-1 transition-all h-86 duration-300"
             key={food.id}
             caption={food.caption}
             imageUrl={food.url}
