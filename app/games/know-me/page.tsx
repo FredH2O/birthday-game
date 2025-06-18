@@ -94,7 +94,7 @@ const KnowMeGame = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center flex-col">
+    <div className="min-h-screen flex my-10 justify-center items-center flex-col">
       <h1 className="text-xl text-center p-3">How well do you know me ? 🤔 </h1>
       <section className="p-5 lg:max-w-lg max-w-sm rounded bg-pink-200 mb-4 shadow-2xl border-r-5 border-b-5">
         <form

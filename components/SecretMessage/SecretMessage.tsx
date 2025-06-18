@@ -28,8 +28,8 @@ const SecretMessage = () => {
             className="min-h-screen fixed inset-0 top-0 left-0 rounded flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-rose-50 to-yellow-100 p-6"
           >
             <div className="bg-white/80 rounded-2xl shadow-xl p-8 max-w-md text-center border border-pink-200">
-              <h1 className="text-2xl font-bold text-pink-600 mb-4">
-                Dear Amber 🌸
+              <h1 className="text-2xl text-start italic font-bold text-pink-600 mb-4">
+                Dear Amber, 🌸
               </h1>
               <p className="text-lg text-gray-800 leading-relaxed">
                 Happy Birthday, pet! 🎂 I love you so much - to the moon and
@@ -42,6 +42,7 @@ const SecretMessage = () => {
                 <br />
                 You are brave, kind, and full of magic... 🥰 ✨
               </p>
+              <p className="text-end pt-5 italic font-light">Dad</p>
               <div className="flex justify-center mt-6 space-x-4">
                 <HeartIcon className="w-6 h-6 text-pink-400 animate-pulse" />
                 <SparklesIcon className="w-6 h-6 text-yellow-400 animate-bounce" />
