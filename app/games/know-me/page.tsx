@@ -127,7 +127,7 @@ const KnowMeGame = () => {
             <p className="font-bold text-sm bg-sky-200 py-1 px-3 rounded">
               Score: {score}
             </p>
-            <p className="text-2xl">{message}</p>
+            <p className="text-xl max-w-xs break-words">{message}</p>
             {playAgain ? (
               <Button
                 onClick={() => handlePlayAgain()}
