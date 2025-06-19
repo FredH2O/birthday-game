@@ -100,14 +100,14 @@ const KnowMeGame = () => {
         <form
           key={formKey}
           onSubmit={handleSubmit}
-          className="lg:grid lg:grid-cols-2 lg:gap-5 flex flex-col justify-center gap-5 min-w-sm py-1 items-center"
+          className="lg:grid lg:grid-cols-2 font-mono lg:gap-5 flex flex-col justify-center gap-5 min-w-sm py-1 items-center"
         >
           {(questions as Question[]).map((q, index) => {
             const mixedOptions = shuffledQuestionsOptions[index];
 
             return (
               <div key={index} className="self-start">
-                <p className="font-semibold">{q.question}</p>
+                <p className="font-semibold text-gray-800">{q.question}</p>
                 <div className="mt-2 space-y-2">
                   <RadioButtons totalAnswer={mixedOptions} questionId={index} />
                 </div>
