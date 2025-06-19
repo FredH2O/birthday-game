@@ -53,11 +53,11 @@
     "question": "Which snack do I love?",
     "options": [
       { "label": "Fries", "value": "fries" },
-      { "label": "Chicken Popcorn", "value": "popcornchicken" },
+      { "label": "Chicken Nuggets", "value": "chickennugget" },
       { "label": "Nachos", "value": "nachos" },
       { "label": "Cheese Balls", "value": "cheeseballs" }
     ],
-    "answer": "popcornchicken"
+    "answer": "chickennugget"
   },
   {
     "question": "What do I love to do on weekends?",
